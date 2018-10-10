@@ -3,6 +3,7 @@ __author__ = '井翔宇'
   @ 基于百度AI的文字识别服务
   @ 识别图片中的文字信息
   @ 时间:2018-10-10 11:02
+  @ 更多接口信息参见:https://ai.baidu.com/docs#/OCR-Python-SDK/07883957
 """
 from aip import AipOcr
 import base64
@@ -38,6 +39,14 @@ def basicAccurate_img(client,img_path):
     result= client.basicAccurate(image);
     return result
 
+"""
+  @ 调用通用文字识别, 图片参数为远程url图片
+"""
+def basicGeneral_img(client,img_path):
+    image_path = 'https://b-ssl.duitang.com/uploads/item/201601/10/20160110133212_KUrc4.jpeg'
+    result = client.basicGeneralUrl(image_path);
+    return result
+
 # 主体入口
 if __name__ == '__main__':
 
@@ -47,7 +56,7 @@ if __name__ == '__main__':
 
     image_path = 'img/timg.jpg'
     client = AipOcr_(APP_ID, API_KEY, SECRET_KEY)
-    #general_result = general_img(client, image_path)            # 通用文字识别
-    basicAccurate_img = basicAccurate_img(client, image_path)    # 通用文字识别(高精度)
-
-    print(basicAccurate_img)
+    #general_result = general_img(client, image_path)             # 通用文字识别
+    #basicAccurate_img = basicAccurate_img(client, image_path)    # 通用文字识别(高精度)
+    basicGeneral_img =  basicGeneral_img(client, 'https://b-ssl.duitang.com/uploads/item/201601/10/20160110133212_KUrc4.jpeg')    # 通用文字识别(高精度)
+    print(basicGeneral_img)
