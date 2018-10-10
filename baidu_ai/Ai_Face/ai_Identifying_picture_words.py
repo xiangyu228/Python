@@ -58,5 +58,5 @@ if __name__ == '__main__':
     client = AipOcr_(APP_ID, API_KEY, SECRET_KEY)
     #general_result = general_img(client, image_path)             # 通用文字识别
     #basicAccurate_img = basicAccurate_img(client, image_path)    # 通用文字识别(高精度)
-    basicGeneral_img =  basicGeneral_img(client, 'https://b-ssl.duitang.com/uploads/item/201601/10/20160110133212_KUrc4.jpeg')    # 通用文字识别(高精度)
+    basicGeneral_img =  basicGeneral_img(client, 'https://b-ssl.duitang.com/uploads/item/201601/10/20160110133212_KUrc4.jpeg')    # 通用文字识别(网络图片)
     print(basicGeneral_img)
