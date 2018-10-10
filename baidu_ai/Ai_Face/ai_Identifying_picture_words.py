@@ -29,7 +29,10 @@ def general_img(client,img_path):
     result= client.basicGeneral(image);
     return result
 
-""" 调用通用文字识别（高精度版） """
+"""
+  @ 调用通用文字识别
+  @（高精度版）
+"""
 def basicAccurate_img(client,img_path):
     image = get_file_content(img_path)
     result= client.basicAccurate(image);
