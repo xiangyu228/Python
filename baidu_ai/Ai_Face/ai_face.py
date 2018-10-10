@@ -4,6 +4,7 @@ __author__ = '井翔宇'
   @ 识别出人脸的位置，并标记位置
   @ 时间:2018-9-29 15:42
 """
+
 from aip import AipFace
 import base64
 import json
