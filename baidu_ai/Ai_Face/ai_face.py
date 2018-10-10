@@ -73,6 +73,6 @@ if __name__ == '__main__':
     API_KEY = 'g7bnDTUUK9SMzIsKIHMyqPTw'
     SECRET_KEY = 'sAxOW2M48QOmPUxQeEza3yYbdFyCGH0Y'
 
-    image_path = '3.jpg'
+    image_path = 'img/3.jpg'
     result = detect(APP_ID, API_KEY, SECRET_KEY, image_path, 10)
     result_img_show(image_path, result)
