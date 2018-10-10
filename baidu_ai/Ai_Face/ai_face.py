@@ -8,7 +8,6 @@ from aip import AipFace
 import base64
 import json
 import cv2
-
 """
   @ 初始化AirFace对象
   @ 并返回结果
