@@ -3,6 +3,9 @@ __author__ = '井翔宇'
   @ 数据结构简单，仅供测试使用
   @ 使用读取excel文件并画图
   @ 时间:2018-10-10 13:59
+  @ 更多可参见: https://blog.csdn.net/wsp_1138886114/article/details/80509375
+  @            https://blog.csdn.net/qq_31967985/article/details/79975663
+  @            https://www.colabug.com/3104718.html
 """
 from pyecharts import Bar
 import xlrd
