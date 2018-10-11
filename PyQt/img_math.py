@@ -6,6 +6,7 @@ __author__ = '井翔宇'
 #
 # WARNING! All changes made in this file will be lost!
 # 基于百度人工智能的人脸对比技术
+#
 
 import sys
 import base64
