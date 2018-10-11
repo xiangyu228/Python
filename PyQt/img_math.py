@@ -135,4 +135,4 @@ def show_MainWindow():
     sys.exit(app.exec_())                   # 当来自操作系统的分发事件指派调用窗口时，
 
 if __name__ == "__main__":
-    show_MainWindow()  # 调用显示窗体的方法
+    show_MainWindow()                       # 调用显示窗体的方法
