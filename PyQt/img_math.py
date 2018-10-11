@@ -16,8 +16,8 @@ from tkinter import filedialog
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
-    # 默认人脸图片路径
     def __init__(self):
+        # 默认人脸图片路径
         self.label_img1_path = ''
         self.label_img2_path = ''
 
