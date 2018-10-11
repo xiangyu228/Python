@@ -11,7 +11,7 @@ from pyecharts import Bar
 import xlrd
 
 def xlrd_read(file_path):
-    data = xlrd.open_workbook('test.xls')  # 打开文件
+    data = xlrd.open_workbook('test_exce.xls')  # 打开文件
     table = data.sheets()[0]               # 获取第一个sheet
     nrows = table.nrows                    # 获取表格总行数
     nclos = table.ncols                    # 获取表格总列数
