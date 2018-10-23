@@ -105,18 +105,22 @@ class Handler(BaseHandler):
         file_download_str_text = [] # 电影下载资源 只要种子名称
         file_download_list = []     # 重新组合下载资源文字和种子链接
 
+        # 获取电影下载资源文字及连接存入列表
         for each in response.doc('table tbody tr td').items():
             file_download_text.append(each.text())
 
+        # 对电影下载连接进行解码(此操作可根据需要是否保留?)
         for each in response.doc('table tbody tr td a').items():
             # url 中文解码
             file_download_ed2k.append(urllib.parse.unquote(each.attr.href, encoding='utf-8', errors='replace') )
 
+        # 分割下载资源文字及连接并把种子名称存入list
         for x in file_download_text:
             y = str(x)
             z = y.split('：')
             file_download_str_text.append(z[0])
 
+        # 重新组合下载资源文字和种子链接
         for index,items in enumerate(file_download_str_text):
             file_download_list.append(items+':'+file_download_ed2k[index]+'\n')
 
