@@ -95,15 +95,15 @@ class Handler(BaseHandler):
 
     # 重新整合电影信息
     def film_message(self, response):
-        film_type_name = response.save['film_type_name']  # 电影分类名称
-        film_title = response.doc('#show h1').text()    # 电影标题
-        file_info  = response.doc('#showinfo p').text()  # 电影简要信息
+        film_type_name = response.save['film_type_name']         # 电影分类名称
+        film_title = response.doc('#show h1').text()             # 电影标题
+        file_info  = response.doc('#showinfo p').text()          # 电影简要信息
         film_img_url = response.doc('#showdesc img').attr('src') # 电影封面图url
 
-        file_download_text = []    # 电影下载资源 文字
-        file_download_ed2k = []    # 电影下载资源 ed2k
-        file_download_str_text = []  #电影下载资源 只要种子名称
-        file_download_list = []    # 重新组合下载资源文字和种子链接
+        file_download_text = []     # 电影下载资源 文字
+        file_download_ed2k = []     # 电影下载资源 ed2k
+        file_download_str_text = [] # 电影下载资源 只要种子名称
+        file_download_list = []     # 重新组合下载资源文字和种子链接
 
         for each in response.doc('table tbody tr td').items():
             file_download_text.append(each.text())
@@ -175,7 +175,6 @@ class Handler(BaseHandler):
             except:
                 print("提交失败",db.Error)
                 db.rollback()
-
             """
               @ 在本地创建text写入电影基本信息
               @ 该操作可以根据需要是否保留
