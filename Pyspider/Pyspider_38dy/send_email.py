@@ -18,14 +18,13 @@ from email.header import Header
 def get_films_info():
     # 连接数据库
     connect = pymysql.Connect(
-        host='5923cbe07b4f7.sh.cdb.myqcloud.com',
-        port= 14249,
-        user='root',
-        passwd='longju2018!@#',
-        db='shop',
+        host='host',
+        port= 'port',
+        user='user',
+        passwd='passwd',
+        db='db',
         charset='utf8'
     )
-
     # 获取游标
     cursor = connect.cursor()
     """
@@ -51,7 +50,7 @@ def send_email(film_message):
     # 第三方 SMTP 服务
     mail_host="smtp.qq.com"           # 设置服务器
     mail_user="2270466620"            # 用户名
-    mail_pass="xiaoyu2281120@"        # 口令
+    mail_pass="**************"        # 口令
     sender = '2270466620@qq.com'      # 发送者
     receivers = ['981353715@qq.com','445153051@qq.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
     mail_msg = """
