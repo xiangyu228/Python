@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #coding:utf-8
 """
   @ 作 者:井翔宇
@@ -16,15 +16,26 @@ from email.header import Header
 
 # 读取电影资讯信息
 def get_films_info():
-    db = pymysql.connect("localhost","root","root","38dy")
-    cursor = db.cursor()
+    # 连接数据库
+    connect = pymysql.Connect(
+        host='5923cbe07b4f7.sh.cdb.myqcloud.com',
+        port= 14249,
+        user='root',
+        passwd='longju2018!@#',
+        db='shop',
+        charset='utf8'
+    )
+
+    # 获取游标
+    cursor = connect.cursor()
     """
       @ 作 用:随机查询一条电影信息
       @ 其 它:可修改为:如果发现最新电影信息可优先发送...
     """
-    sql = "SELECT * FROM films WHERE id >= ((SELECT MAX(id) FROM films)-(SELECT MIN(id) FROM films)) * RAND() + (SELECT MIN(id) FROM films) LIMIT 1"
+    sql = "SELECT * FROM yf_films WHERE id >= ((SELECT MAX(id) FROM yf_films)-(SELECT MIN(id) FROM yf_films)) * RAND() + (SELECT MIN(id) FROM yf_films) LIMIT 1"
     cursor.execute(sql)
     result = cursor.fetchone()
+    #print(result)
     send_email(result)
 
 # 发送电子邮件
@@ -40,9 +51,9 @@ def send_email(film_message):
     # 第三方 SMTP 服务
     mail_host="smtp.qq.com"           # 设置服务器
     mail_user="2270466620"            # 用户名
-    mail_pass="**************"        # 口令
+    mail_pass="xiaoyu2281120@"        # 口令
     sender = '2270466620@qq.com'      # 发送者
-    receivers = ['981353715@qq.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+    receivers = ['981353715@qq.com','445153051@qq.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
     mail_msg = """
                     <html>
                      <head></head>
@@ -50,9 +61,7 @@ def send_email(film_message):
                       <div id="im">
                        <div id="nml">
                         <div id="dir">
-                         当前位置：
-                         <a href="http://www.38dy.cn/"></a> &gt;
-                         <a href="/a/kehuan/">科幻</a> &gt; 电影下载页面
+                         影片类型：%s
                         </div>
                         <div id="show">
                          <h1>%s</h1>
@@ -94,10 +103,10 @@ def send_email(film_message):
          y +=x +"""</td>
 		</tr>
          """
-    mail_msg_e = mail_msg % (film_title,film_img_url,new_film_body,y) # 字符串替换操作
+    mail_msg_e = mail_msg % (film_type_name,film_title,film_img_url,new_film_body,y) # 字符串替换操作
     message = MIMEText(mail_msg_e, 'html', 'utf-8')
     message['From'] = Header("井翔宇", 'utf-8')
-    message['To'] =  Header("981353718@qq.com", 'utf-8')
+    message['To'] =  Header("你收不收我都发~~嘿嘿", 'utf-8')
     subject = '井翔宇为您每日电影推荐!'
     message['Subject'] = Header(subject, 'utf-8')
     try:
