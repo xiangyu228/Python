@@ -154,11 +154,11 @@ class Handler(BaseHandler):
         #db = pymysql.connect("5923cbe07b4f7.sh.cdb.myqcloud.com:14249","root","longju2018!@#","shop")
         # 连接数据库
         connect = pymysql.Connect(
-            host='5923cbe07b4f7.sh.cdb.myqcloud.com',
-            port= 14249,
-            user='root',
-            passwd='longju2018!@#',
-            db='shop',
+            host='host',
+            port= 'port',
+            user='user',
+            passwd='passwd',
+            db='db',
             charset='utf8'
         )
         
